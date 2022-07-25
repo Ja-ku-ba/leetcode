@@ -1,0 +1,12 @@
+class Solution:
+    def searchRange(self, nums, target):
+        res = []   
+        try:
+            res.append(nums.index(target))
+            nums.reverse()
+            last = (nums.index(target))
+            res.append(len(nums) - 1 - last)
+            if len(res) == 2:
+                return res
+        except:
+            return [-1,-1]
