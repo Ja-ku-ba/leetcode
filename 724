@@ -1,0 +1,10 @@
+class Solution:
+    def pivotIndex(self, nums):
+        left = 0
+        right = sum(nums)
+        for idx, mass in enumerate(nums):
+            right -= mass
+            if left == right:
+                return idx
+            left += mass
+        return -1
