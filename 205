@@ -1,0 +1,12 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        mem = {}
+        for idx, char in enumerate(s):
+            if char not in mem:
+                if t[idx] in mem.values():
+                    return False
+                mem[char] = t[idx]
+            else:
+                if mem[char] != t[idx]:
+                    return False
+        return True
