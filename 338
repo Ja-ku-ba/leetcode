@@ -1,0 +1,7 @@
+class Solution:
+    def countBits(self, n: int) -> List[int]:
+        res = []
+        for num in range(n + 1):
+            number = str(bin(num)[2:])
+            res.append(number.count('1'))
+        return res
