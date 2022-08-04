@@ -1,0 +1,15 @@
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        ls = 0
+        rs = 0
+        res = 0
+        for letter in s:
+            if ls == rs:
+                res += 1
+                ls = 0
+                rs = 0
+            if letter == 'R':
+                rs += 1
+            else:
+                ls += 1
+        return res
