@@ -1,0 +1,17 @@
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+        res = ''
+        mem = {}
+        turn = 0
+        alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        for letter in key:
+            if (letter not in mem) and (letter != ' '):
+                mem[letter] = alphabet[turn]
+                turn += 1
+
+        for char in message:
+            if char == ' ':
+                res += ' '
+            else:
+                res += mem.get(char)
+        return res
