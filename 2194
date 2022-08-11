@@ -1,0 +1,35 @@
+class Solution:
+    def cellsInRange(self, s: str) -> List[str]:
+        alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        idx = s.find(':')
+        rang = []
+        res = []
+
+        first = s[:idx]
+        first_numb_idx = 0
+        for pos, char in enumerate(first):
+            if char not in alphabet:
+                first_numb_idx = pos
+                break
+        first_numb = s[first_numb_idx: idx]
+        rang.append(first_numb)
+
+        second = s[idx:]
+        second_numb_idx = 0
+        for pos, char in enumerate(first):
+            if char not in alphabet:
+                second_numb_idx = pos
+                break
+        second_numb = s[second_numb_idx + idx + 1:]
+        rang.append(second_numb)
+
+        rang.sort()
+
+        first_letter = alphabet.index(s[:first_numb_idx])
+        second_letter = alphabet.index(s[idx + 1: second_numb_idx + idx + 1])
+        for ele in alphabet[first_letter: second_letter + 1]:
+            for numb in range(int(rang[0]), int(rang[1]) + 1):
+                res.append(f'{ele}{numb}')
+
+                
+        return res
