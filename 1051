@@ -1,0 +1,10 @@
+class Solution:
+    def heightChecker(self, heights):
+        res = 0
+        new_heights = heights.copy()
+        heights.sort()
+        for idx, numb in enumerate(new_heights):
+            if numb != heights[idx]:
+                res += 1
+                
+        return res
