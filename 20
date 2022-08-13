@@ -1,0 +1,48 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        brackets = 0
+        normal = '()'
+        square = '[]'
+        curly = '{}'
+        order = []
+        if len(s) % 2 != 0:
+            return False
+        for char in s:
+            if char in normal:
+                if char == normal[0]:
+                    order += ['n']
+                    brackets += 1
+                else:
+                    if brackets == 0:
+                        return False
+                    elif order[-1] == 'n':
+                        order.pop(-1)
+                        brackets -= 1
+                    else:
+                        return False
+            elif char in square:
+                if char == square[0]:
+                    order += 's'
+                    brackets += 1
+                else:
+                    if brackets == 0:
+                        return False
+                    elif order[-1] == 's':
+                        order.pop(-1)
+                        brackets -= 1
+                    else:
+                        return False
+            else:
+                if char == curly[0]:
+                    order += ['c']
+                    brackets += 1
+                else:
+                    if brackets == 0:
+                        return False
+                    elif order[-1] == 'c':
+                        order.pop(-1)
+                        brackets -= 1
+                    else:
+                        return False
+        return brackets == 0
+
