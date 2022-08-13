@@ -1,0 +1,23 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        res = 0
+        first_idx = 0
+        sec_idx = 1
+        for uno in range(len(height)):
+            for duo in range(uno + 1, len(height)):
+                i = height[uno]
+                n = height[duo]
+                if i > n:
+                    bottom = sec_idx - first_idx
+                    peak = (i - (i-n))
+                    if peak * bottom > res:
+                        res = peak * bottom 
+                else:
+                    bottom = sec_idx - first_idx
+                    peak = (n - (n - i))
+                    if peak * bottom > res:
+                        res = peak * bottom
+                sec_idx += 1
+            first_idx += 1
+            sec_idx = first_idx + 1
+        return res
