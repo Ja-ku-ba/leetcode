@@ -1,0 +1,14 @@
+class Solution:
+    def minimumSum(self, num: int) -> int:
+        numbs = []
+        for i in str(num):
+            numbs.append(i)
+        numbs.sort()
+        first_numb = ''
+        sec_numb = ''
+        for idx, n in enumerate(numbs):
+            if idx % 2 == 0:
+                first_numb += n
+            else:
+                sec_numb += n
+        return int(first_numb) + int(sec_numb)
