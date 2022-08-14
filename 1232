@@ -1,0 +1,24 @@
+class Solution:
+    def checkStraightLine(self, coordinates: List[List[int]]) -> bool:
+        first_cords = coordinates[0]
+        sec_cords = coordinates[1]
+        last_cords = coordinates[-1]
+        try:
+            if (first_cords[0]-sec_cords[0]) != 0:
+                val = (first_cords[1]-sec_cords[1])/(first_cords[0]-sec_cords[0])
+            else:
+                val = (first_cords[1]-last_cords[1])/(first_cords[0]-last_cords[0])
+            for numbs in range(2, len(coordinates)):
+                if first_cords[0]-coordinates[numbs][0] != 0:
+                    checker = ((first_cords[1]-coordinates[numbs][1])/(first_cords[0]-coordinates[numbs][0]))
+
+                else:
+                    checker = ((sec_cords[1]-coordinates[numbs][1])/(sec_cords[0]-coordinates[numbs][0]))
+                if checker != val:
+                    return False
+        except:
+            checked = coordinates[0][0]
+            for numbs in coordinates:
+                if numbs[0] != checked:
+                    return False
+        return True
