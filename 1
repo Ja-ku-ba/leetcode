@@ -1,0 +1,18 @@
+class Solution:
+    def twoSum(self, nums, target):
+        nums_copy = nums.copy()
+        nums_copy.sort()
+        l = 0
+        r = len(nums) - 1
+        while r > l:
+            if nums_copy[l] + nums_copy[r] > target:
+                r -= 1
+            elif nums_copy[l] + nums_copy[r] < target:
+                l += 1
+            else:
+                try:
+                    l = nums.index(nums_copy[l])
+                    r = nums.index(nums_copy[r], l + 1)
+                except:
+                    r = nums.index(nums_copy[r], 0, l + 1)
+                return [l, r]
