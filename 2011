@@ -1,0 +1,8 @@
+class Solution:
+    def finalValueAfterOperations(self, operations: List[str]) -> int:
+        res = 0
+        res += operations.count('++X')
+        res += operations.count('X++')
+        res -= operations.count('--X')
+        res -= operations.count('X--')
+        return res
