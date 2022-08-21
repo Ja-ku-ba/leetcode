@@ -1,0 +1,10 @@
+class Solution:
+    def mostWordsFound(self, sentences: List[str]) -> int:
+        biggest = 0
+        pos = 0
+        for idx, sentence in enumerate(sentences):
+            if biggest < sentence.count(' '):
+                biggest = sentence.count(' ')
+                pos = idx
+                
+        return biggest + 1
