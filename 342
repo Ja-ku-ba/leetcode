@@ -1,0 +1,8 @@
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        div = 4
+        while n/div >= 1:
+            div *= 4
+        if n/div == 0.25:
+            return True
+        return False
