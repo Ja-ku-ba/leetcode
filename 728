@@ -1,0 +1,16 @@
+class Solution:
+    def selfDividingNumbers(self, left, right):
+        res = []
+        for i in range(left, right + 1):
+            str_numb = ''
+            status = True
+            str_numb = str(i)
+            for n in str_numb:
+                if int(n) != 0:
+                    if (i%int(n)) != 0:
+                        status = False
+                else:
+                    status = False
+            if status is True:
+                res.append(i)
+        return res
