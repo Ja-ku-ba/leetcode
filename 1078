@@ -1,0 +1,12 @@
+class Solution:
+    def findOcurrences(self, text, first, second):
+        text = text.split()
+        res = []
+        for idx, word in enumerate(text):
+            if word == first:
+                try:
+                    if text[idx + 1] == second:
+                        res.append(text[idx + 2])
+                except:
+                    return res
+        return res
