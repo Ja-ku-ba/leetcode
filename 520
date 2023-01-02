@@ -1,0 +1,19 @@
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
+        last_small = False
+        last_big = False
+
+        for idx, char in enumerate(word):
+            if idx == 0:
+                if char.islower():
+                    last_small = True
+                continue
+            if char.islower():
+                last_small = True
+                if last_big is True:
+                    return False
+            if char.isupper():
+                last_big = True
+                if last_small is True:
+                    return False
+        return True
