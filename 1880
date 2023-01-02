@@ -1,0 +1,13 @@
+class Solution:
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+        first_val = ''
+        for char in firstWord:
+            first_val += str(ord(char)-97)
+        second_val = ''
+        for char in secondWord:
+            second_val += str(ord(char)-97)
+        target_val = ''
+        for char in targetWord:
+            target_val += str(ord(char)-97)
+        
+        return int(target_val) == int(first_val) + int(second_val)
