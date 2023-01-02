@@ -1,0 +1,12 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        sum_ = 0
+        for word in words:
+            break_status = False
+            for char in set(word):
+                if chars.count(char) < word.count(char):
+                    break_status = True
+                    break
+            if break_status is False:
+                sum_ += len(word)
+        return sum_
