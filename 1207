@@ -1,0 +1,17 @@
+from collections import Counter
+class Solution:
+    def uniqueOccurrences(self, arr):
+        return len(set(arr)) == len(set(Counter(arr).values()))
+        
+        
+class Solution:
+    def uniqueOccurrences(self, arr):
+        exists = []
+        for number in set(arr):
+            if arr.count(number) not in exists:
+                exists.append(str(arr.count(number)))
+            else:
+                return False
+        if len(exists) == len(set(exists)):
+            return True
+        return False
