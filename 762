@@ -1,0 +1,19 @@
+class Solution:
+    def countPrimeSetBits(self, left: int, right: int) -> int:
+        res = 0
+        for n in range(left, right + 1):
+            n = str(bin(n)[2:])
+            ones = n.count("1")
+            print(n)
+            var = 2
+            prime = True
+            while ones > var:
+                if ones % var == 0:
+                    prime = False
+                    break
+                var += 1
+            if ones == 1:
+                continue
+            if prime is True:
+                res += 1
+        return res
